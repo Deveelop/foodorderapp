@@ -7,7 +7,6 @@ export default function Header (props){
     return (
         <>
     <header className={styles.header}>
-        {/* <div className={styless.icon}><HomeIcon/></div> */}
         <h2>Kelly's kitchen</h2>
         <HeaderCartButton isCartShown={props.onShowCart}/>
     </header>

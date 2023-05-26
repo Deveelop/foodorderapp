@@ -3,7 +3,7 @@ import styles from './Cart.module.css'
 
 import Modal from "../UI/Modal";
 export default function Cart(props) {
-    const cartItems = <ul className={styles['cart-items']}> {[{ id: 'c1', name: 'sushi', amount: 3, price: 20.99 }].map((carts) => <li key={Math.random()}>{carts.name}</li>)}</ul>
+    const cartItems = <ul className={styles['cart-items']}> {[{ id: 'c1', name: 'sushi', amount: 3, price: 20.99 }].map((items) => <li key={Math.random()}>{items.name}</li>)}</ul>
     return <Modal onCancel={props.onClose}>
         {cartItems}
         <div className={styles.total}>
