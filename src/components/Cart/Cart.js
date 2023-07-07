@@ -8,6 +8,8 @@ import Checkout from './Checkout';
 export default function Cart(props) {
     const ctx = useContext(CartContext);
    const [hasItem] = useState(ctx.items.length > 0)
+   const [showForm, setShowForm] = useState(false);
+  
    const cartRemoveHandler = (id) => {
     ctx.removeItem(id)
    }
@@ -19,18 +21,24 @@ export default function Cart(props) {
     <CartItems onAdd={cartAddHandler.bind(null, item)} onRemove={cartRemoveHandler.bind(null, item.id)} name={item.name} price={item.price} amount={item.amount} key={item.id}/>        
     ))}</ul>
     const totalAmount = `${ctx.totalAmount.toFixed(2)}`;
-   
+    const orderButtonHandle = () =>{
+        setShowForm(true);
+       }
+       const modalActions = (
+        <div className={styles.actions}>
+        <button onClick={props.onClose} className={styles['button--alt']}>Close</button>
+        <button onClick={orderButtonHandle} className={styles.button} disabled={!hasItem}>Order</button>
+        </div>
+       )
+  
     return <Modal onCancel={props.onClose}>
         {cartItems}
         <div className={styles.total}>
             <span>Total Amount</span>
             <span><span>&#8358;</span>{totalAmount}</span>
             </div>
-            <Checkout/>
-
-        <div className={styles.actions}>
-        <button onClick={props.onClose} className={styles['button--alt']}>Close</button>
-        <button className={styles.button} disabled={!hasItem}>Order</button>
-        </div>
+            {showForm && <Checkout onCancel={props.onClose}/>}
+        {!showForm && modalActions}
+       
     </Modal>
 }
