@@ -1,0 +1,77 @@
+.contained{
+    width: 100%;
+    max-width: 468px;
+    margin: 30px auto;
+    padding: 20px;
+    color: #fff;
+}
+.contained h1{
+    text-align: center;
+}
+
+.formControl{
+    margin: 0.5rem 0; 
+}
+.formControl label{
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.formControl input{
+    display: block;
+    width: 100%;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    line-height: 1.5rem;
+   border-radius: 8px;
+    padding-left: 0.5rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.75;
+    margin-bottom: 0.5rem;
+    outline: none;
+}
+.formControl input:focus{
+    border: 2px solid rgb(29, 43, 172);
+    
+}
+.actions{
+    width: 800px;
+    display: flex;
+    flex-direction: row;
+}
+.actions p{
+    margin: 0 200px;
+}
+.actions p a{
+    text-decoration: none;
+    font-weight: 700;
+    color: red;
+}
+.contained button{
+  cursor: pointer;
+  margin: 20px 0;
+    border: none;
+    font-size: 0.9rem;
+    line-height: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    height: 48px;
+    padding: 8px 22px;
+    background: rgb(0, 171, 85);
+    box-shadow: rgba(0, 171, 85, 0.24) 0px 8px 16px 0px;
+}
+.contained button:hover{
+    background: green;
+    box-shadow: none;
+}
+.contained p{
+    text-align: center;
+    font-weight: 700;
+}
+.contained p a{
+    text-decoration: none;
+    color: red;
+}

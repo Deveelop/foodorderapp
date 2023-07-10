@@ -34,6 +34,7 @@ const {
     reset: resetCity
   } = useInput (value => value.trim() !== '');
 
+  
 
 
 
@@ -46,31 +47,37 @@ const {
       postal: enteredPostal,
       city: enteredCity
     }
-    console.log(userData)
+   props.onSubmit(userData);
     resetName();
     resetStreet();
     resetPostal();
     resetCity();
   }
+
+  const nameStyles = `${styles.control} ${nameHasError ? styles.invalid : ''}`
+  const streetStyles = `${styles.control} ${streetHasError ? styles.invalid : ''}`
+  const postalStyles = `${styles.control} ${postalHasError ? styles.invalid : ''}`
+  const cityStyles = `${styles.control} ${cityHasError ? styles.invalid : ''}`
+  
   
   return (
     <form className={styles.form} onSubmit={checkoutSubmit}>
-        <div className={styles.control}>
+        <div className={nameStyles}>
         <label htmlFor='name'>Your name</label>
         <input type='text' id='name' value={enteredName} onChange={nameChange} onBlur={nameBlurHandle} />
         {nameHasError && <p>field required</p>}
         </div>
-        <div className={styles.control}>
+        <div className={streetStyles}>
         <label htmlFor='street'>Street</label>
         <input type='text' id='street' value={enteredStreet} onChange={streetChange} onBlur={streetBlurHandle}/>
         {streetHasError && <p>field required</p>}
         </div>
-        <div className={styles.control}>
+        <div className={postalStyles}>
         <label htmlFor='postal'>Postal Code</label>
         <input type='text' id='postal' value={enteredPostal} onChange={postalChange} onBlur={postalBlurHandle}/>
         {postalHasError && <p>enter valid code</p>}
         </div>
-        <div className={styles.control}>
+        <div className={cityStyles}>
         <label htmlFor='city'>City</label>
         <input type='text' id='city' value={enteredCity} onChange={cityChange} onBlur={cityBlurHandle}/>
         {cityHasError && <p>field required</p>}
