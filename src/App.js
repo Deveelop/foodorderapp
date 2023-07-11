@@ -6,7 +6,10 @@ import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
 import Login from "./components/admin/Login";
 import Register from "./components/admin/Register";
-import { Route, Routes } from "react-router-dom";
+import VerifyEmail from "./VerifyEmail";
+import Profile from "./Profile";
+import PrivateRoute from "./PrivateRoute";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider } from "./store/AuthContext";
 import { auth } from "./Firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -14,6 +17,7 @@ import { onAuthStateChanged } from "firebase/auth";
 function App() {
   const [cartShown, setCartShown] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [timeActive, setTimeActive] = useState(false)
 
   useEffect(()=>{
 onAuthStateChanged(auth, (user)=>{
@@ -30,15 +34,32 @@ setCurrentUser(user)
  
   
   return (
-    <AuthProvider value={{currentUser}}>
+    <AuthProvider value={{currentUser, timeActive, setTimeActive}}>
+      <Router>
    <CartProvider>
    {cartShown && <Cart onClose={hideCartHandler}/>}
    <Header onShowCart={showCartHandler}/>
  <main>
   <Routes>
     <Route path="/home" element={<Meals/>}/>
-    <Route path="/login" element={<Login />}/>
-    <Route path="/register" element={<Register/>}/>
+    <Route path="/login" element={
+    !currentUser?.emailVerified ?
+    <Login />
+     : <Navigate to='/home' replace/>
+    }/>
+    <Route path="/register" element={
+    !currentUser?.emailVerified ?
+    <Register/>
+    : <Navigate to='/home' replace/>
+    
+    }/>
+    <Route path="/verify-email" element={<VerifyEmail/>}/>
+    <Route exact path="/profile" element={
+    <PrivateRoute>
+    <Profile/>
+    </PrivateRoute>
+    }/>
+
   </Routes>
  </main>
   <footer>
@@ -46,6 +67,7 @@ setCurrentUser(user)
             <p>+2348065032361</p>
         </footer>
    </CartProvider>
+   </Router>
    </AuthProvider>
   );
 }
