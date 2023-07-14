@@ -1,10 +1,18 @@
 .contained{
-    width: 100%;
-    max-width: 468px;
-    margin: 30px auto;
-    padding: 20px;
+    max-width: 45rem;
+    width: 90%;
+    margin: auto;
+    border-radius: 14px;
+    padding: 1rem;
     color: #fff;
+    /* max-width: 45rem;
+    width: 90%;
+    margin: auto;
+   color: #fff;
+    border-radius: 14px;
+    padding: 1rem; */
 }
+
 .contained h1{
     text-align: center;
 }
@@ -19,7 +27,7 @@
 }
 .formControl input{
     display: block;
-    width: 100%;
+    width: 90%;
     border: 1px solid #ccc;
     font-size: 1rem;
     line-height: 1.5rem;
@@ -41,7 +49,7 @@
     flex-direction: row;
 }
 .actions p{
-    margin: 0 200px;
+    margin: 0 100px;
 }
 .actions p a{
     text-decoration: none;
@@ -57,7 +65,7 @@
     font-weight: 700;
     border-radius: 8px;
     color: rgb(255, 255, 255);
-    width: 100%;
+    width: 90%;
     height: 48px;
     padding: 8px 22px;
     background: rgb(0, 171, 85);
@@ -74,13 +82,4 @@
 .contained p a{
     text-decoration: none;
     color: red;
-}
-@media (max-width: 962px) {
-    .contained{
-        width: 150%;
-        max-width: 468px;
-        margin: 30px auto;
-        padding: 20px;
-        color: #fff;
-    }
 }

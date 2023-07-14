@@ -6,7 +6,7 @@ import {useAuthValue} from '../../store/AuthContext'
 import styles from './Register.module.css';
 
 function Register() {
-
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
@@ -16,7 +16,7 @@ function Register() {
 
   const validatePassword = () => {
     let isValid = true
-    if (password !== '' && confirmPassword !== ''){
+    if (password !== '' && confirmPassword !== '' && username !== ''){
       if (password !== confirmPassword) {
         isValid = false
         setError('Passwords does not match')
@@ -30,7 +30,7 @@ function Register() {
     setError('')
     if(validatePassword()) {
       // Create a new user with email and password using firebase
-        createUserWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, username, email, password)
         .then(() => {
           sendEmailVerification(auth.currentUser)   
           .then(() => {
@@ -58,6 +58,13 @@ function Register() {
             required
             onChange={e => setEmail(e.target.value)}/>
 
+            <input 
+            type='username' 
+            value={username}
+            placeholder="Enter your username"
+            required
+            onChange={e => setEmail(e.target.value)}/>
+
           <input 
             type='password'
             value={password} 
@@ -76,7 +83,7 @@ function Register() {
         </form>
         <span>
           Already have an account?  
-          <Link to='/login' className={styles.link}>Login</Link>
+          <Link to='/signin' className={styles.link}>Login</Link>
         </span>
       </div>
     </div>

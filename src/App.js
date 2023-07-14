@@ -4,10 +4,11 @@ import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
-import Login from "./components/admin/Login";
+import SignIn from "./components/admin/SignIn";
 import Register from "./components/admin/Register";
 import VerifyEmail from "./VerifyEmail";
 import Profile from "./Profile";
+import UserProfile from "./UserProfile";
 import PrivateRoute from "./PrivateRoute";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { AuthProvider } from "./store/AuthContext";
@@ -41,24 +42,19 @@ setCurrentUser(user)
    <Header onShowCart={showCartHandler}/>
  <main>
   <Routes>
-    <Route path="/home" element={<Meals/>}/>
-    <Route path="/login" element={
-    !currentUser?.emailVerified ?
-    <Login />
-     : <Navigate to='/home' replace/>
+    <Route path="/" element={<Meals/>}/>
+    <Route path="/signin" element={
+    <SignIn />
     }/>
     <Route path="/register" element={
-    !currentUser?.emailVerified ?
     <Register/>
-    : <Navigate to='/home' replace/>
-    
     }/>
     <Route path="/verify-email" element={<VerifyEmail/>}/>
-    <Route exact path="/profile" element={
+    {/* <Route exact path="/profile" element={
     <PrivateRoute>
     <Profile/>
     </PrivateRoute>
-    }/>
+    }/> */}
 
   </Routes>
  </main>

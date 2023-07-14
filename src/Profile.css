@@ -1,0 +1,272 @@
+.subG1{
+   display: flex;
+   justify-content: space-between;
+    max-width: 45rem;
+    width: 90%;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 14px;
+    padding: 1rem;
+}
+.info{
+  display: flex;
+  flex-direction: column;
+}
+.info h4{
+  margin-top: -1.5px;
+}
+.info span i{
+  color: green;
+}
+.info p{
+  margin-top: -2px;
+}
+.actions{
+  display: flex;
+  flex-direction: row;
+
+}
+.update{
+  border: none;
+  background: green;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.logOut{
+  border: none;
+  background: red;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  .actions{
+    display: flex;
+    flex-direction: column;
+  }
+  .update{
+    width: 100px;
+    border: none;
+    background: green;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  .logOut{
+    width: 100px;
+    border: none;
+    background: red;
+    color: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+}
+  
+  
+.icon {
+  width: 0.35rem;
+  height: 0.35rem;
+}
+
+.badge {
+  background-color: #ccc;
+  padding: 1rem 1rem 1rem;
+  border-radius: 35px;
+  width: 1rem;
+  height: 1rem;
+}
+@keyframes progress {
+  0%{--percentage: 0;}
+  100%{--percentage: var(--values);}
+}
+@property --percentage{
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.div{
+  --primary: #369;
+  --secondary: #adf;
+  --percentage: var(--values);
+  --size: 100px;
+ animation: progress 2s 0.5s forwards;
+  width: var(--size);
+  aspect-ratio: 2/1;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+  position: relative;
+ margin-left: 50px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+
+.div::before{
+  
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient( from 0.75turn at 50% 100%, var(--primary) calc(var(--percentage) * 1% /2), var(--secondary) 0);
+  mask: radial-gradient(at 50% 100%, white 55%, transparent 0);
+  mask-mode: alpha;
+  -webkit-mask: radial-gradient(at 50% 100%, #0000 55%, #000 0);
+  -webkit-mask-mode: alpha;
+  overflow: hidden;
+  border-radius: 50% / 100% 100% 0 0;
+}
+.div::after{
+  counter-reset: percentage var(--percentage);
+  content: counter(percentage)"%";
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: calc(var(--size) / 5);
+  font-weight: 900;
+  color: var(--primary);
+}
+.tracking h1{
+text-align: center;
+}
+.ratingGroup{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top:  10px; 
+}
+
+.orders{
+  --percentageit: var(--value1);
+  width: 100px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+ background-color: transparent;
+ position: relative;
+ color: white;
+ overflow: hidden;
+  margin-right: 10px;
+}
+.orders::before{
+  counter-reset: percentageit var(--percentageit);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #000;
+  content: counter(percentageit)' orders';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient( from 0.75turn at 50% 100%, #046f1b calc(var(--percentageit) * 1%), #fff 0);
+ 
+ 
+}
+
+
+
+.stars{
+  width: 100px;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  --percentageall: var(--value2);
+ background-color: transparent;
+ position: relative;
+ overflow: hidden;
+}
+.stars::before{
+  counter-reset: percentageit var(--percentageall);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: #000;
+  content: counter(percentageall)' stars';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient( from 0.75turn at 50% 100%, #ebdb08 calc(var(--percentageall) * 1%), #fff 0);
+}
+@media (max-width: 800px) {
+  .ratingGroup{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top:  10px; 
+    margin-left: 50px;
+  }
+  .orders{
+    width: 100px;
+    height: 50px;
+    background: green;
+    border-radius: 8px;
+    margin-bottom: 10px;
+   
+  }
+}
+/* 
+::after{
+  content: '';
+  position: relative;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 4px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+  animation: load infinite 5s;
+}
+@keyframes load{
+  0%
+  {
+  width: 0%;
+  background: #f00;
+  }
+  50%{
+    width: 70%;
+    background: #00f;
+  }
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .profile{
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #dcdcdc;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .profile p {
+    text-align: left;
+  }
+  
+  .profile > span{
+    color: blue;
+    margin-top: 30px;
+    cursor: pointer;
+  } */
