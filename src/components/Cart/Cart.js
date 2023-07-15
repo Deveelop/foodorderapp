@@ -4,6 +4,7 @@ import CartContext from '../../store/cart-context';
 import Modal from "../UI/Modal";
 import CartItems from './CartItem';
 import Checkout from './Checkout';
+import UpdateMeals from '../admin/UpdateMeals';
 
 export default function Cart(props) {
     const ctx = useContext(CartContext);
@@ -51,7 +52,7 @@ setIsError(err.message || 'Something went wrong');
     ))
     }</ul>
     
-    const totalAmount = `${ctx.totalAmount.toFixed(2)}`;
+   
     const orderButtonHandle = () =>{
         setShowForm(true);
        }
@@ -66,7 +67,7 @@ setIsError(err.message || 'Something went wrong');
      {cartItems}
         <div className={styles.total}>
             <span>Total Amount</span>
-            <span><span>&#8358;</span>{totalAmount}</span>
+            <span><span>&#8358;</span>{ctx.totalAmount}</span>
             </div>
             {showForm && <Checkout onSubmit={submitHandler} onCancel={props.onClose}/>}
         {!showForm && modalActions}
@@ -95,6 +96,7 @@ setIsError(err.message || 'Something went wrong');
      {isSubmitting && !isError && !didSubmit && isSubmittingModalContent}
      {!isSubmitting && !isError && didSubmit && didSumitModalContent}
      { isSubmitting && !didSubmit && isError && errorMsgContent}
+    {ctx.updateHandle && <UpdateMeals/>}
     </Modal>
 }
 

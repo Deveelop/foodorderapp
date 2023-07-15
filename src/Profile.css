@@ -181,7 +181,7 @@ text-align: center;
  overflow: hidden;
 }
 .stars::before{
-  counter-reset: percentageit var(--percentageall);
+  counter-reset: percentageall var(--percentageall);
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1rem;
   color: #000;

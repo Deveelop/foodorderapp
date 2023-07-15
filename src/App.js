@@ -7,7 +7,6 @@ import CartProvider from "./store/CartProvider";
 import SignIn from "./components/admin/SignIn";
 import Register from "./components/admin/Register";
 import VerifyEmail from "./VerifyEmail";
-import Profile from "./Profile";
 import UserProfile from "./UserProfile";
 import PrivateRoute from "./PrivateRoute";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
@@ -50,11 +49,11 @@ setCurrentUser(user)
     <Register/>
     }/>
     <Route path="/verify-email" element={<VerifyEmail/>}/>
-    {/* <Route exact path="/profile" element={
+     <Route exact path="/profile" element={
     <PrivateRoute>
-    <Profile/>
+    <UserProfile/>
     </PrivateRoute>
-    }/> */}
+    }/> 
 
   </Routes>
  </main>

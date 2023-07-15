@@ -2,25 +2,34 @@ import { useState } from 'react'
 import {useAuthValue} from './store/AuthContext'
 import { signOut } from 'firebase/auth' 
 import { auth } from './Firebase'
-
 import AdminSvg from './components/admin/AdminSvg'
 import './Profile.css'
-
+import UpdateMeals from './components/admin/UpdateMeals'
 function Profile() {
   const {currentUser} = useAuthValue();
+  const [makeUpdate, setMakeUpdate] = useState(false);
   
+  const updateHandle = () => {
+    setMakeUpdate(true);
+  }
+  const closeForm = () => {
+    setMakeUpdate(false);
+  }
+
 
   return (
     
       <div className='subG1'>
+        {makeUpdate && <UpdateMeals onCloseModal={closeForm}/>}
        <div className='info'>
        <span className='badge'> <span className='icon'><AdminSvg /></span></span>
         <h4>@{currentUser?.username} <span><i>verified</i></span></h4>
         <p><strong>Email: </strong>{currentUser?.email}</p>
        
         <div className="actions">
-       <button className='update' type='button'>Update meals</button>
+       <button className='update' type='button' onClick={updateHandle}>Update meals</button>
        <button className='logOut' onClick={() => signOut(auth)}>Sign Out</button>
+      
        </div>
        </div>
       
