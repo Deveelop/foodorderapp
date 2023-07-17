@@ -39,17 +39,18 @@ function Login() {
     .catch(err => setError(err.message))
   }
     return (
-      <div className={styles.contained}>
+      <div className={styles.center}>
+      <div className={styles.auth}>
           <h1>Sign in to your account</h1>
-          {error && <div>{error}</div>}
+          {error && <p className={styles.errorMsg}>{error}</p>}
           <form onSubmit={loginHandler}>
-      <div className={styles.formControl}>
+     
        <label htmlFor="email">E-mail</label>
         <input type='email' name='email' onChange={emailChangeHandle} />
       
         <label htmlFor="password">Password</label>
-        <input type='text' name="password" onChange={passwordChangeHandler}/>
-      </div>
+        <input type='password' name="password" onChange={passwordChangeHandler}/>
+     
       <div className={styles.actions}>
           <input type='checkbox'/>
           <span>Remember me</span>
@@ -62,6 +63,7 @@ function Login() {
   
           <p>Don't have an account? <Link to='/register'>Register</Link></p>
        
+      </div>
       </div>
     )
   }

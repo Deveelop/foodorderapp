@@ -8,7 +8,7 @@ export default function MealItemForm(props){
     const submitHandler = (e) => {
         e.preventDefault();
     const enteredAmount = amountInputRef.current.value; //this is always returned as a string
-    const enteredAmountNumber = +enteredAmount; //reason why we added the plus sign to convert it to a number here.
+    const enteredAmountNumber = +enteredAmount; //reason why I added the plus sign to convert it to a number here.
 
     if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5){
         setFormIsValid(false)

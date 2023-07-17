@@ -1,85 +1,62 @@
-.contained{
-    max-width: 45rem;
-    width: 90%;
-    margin: auto;
-    border-radius: 14px;
-    padding: 1rem;
-    color: #fff;
-    /* max-width: 45rem;
-    width: 90%;
-    margin: auto;
-   color: #fff;
-    border-radius: 14px;
-    padding: 1rem; */
-}
-
-.contained h1{
-    text-align: center;
-}
-
-.formControl{
-    margin: 0.5rem 0; 
-}
-.formControl label{
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-.formControl input{
-    display: block;
-    width: 90%;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    line-height: 1.5rem;
-   border-radius: 8px;
-    padding-left: 0.5rem;
-    padding-right: 0.75rem;
-    padding-bottom: 0.5rem;
-    padding-left: 0.75;
-    margin-bottom: 0.5rem;
-    outline: none;
-}
-.formControl input:focus{
-    border: 2px solid rgb(29, 43, 172);
-    
-}
-.actions{
-    width: 800px;
+.center{
     display: flex;
-    flex-direction: row;
-}
-.actions p{
-    margin: 0 100px;
-}
-.actions p a{
-    text-decoration: none;
-    font-weight: 700;
-    color: red;
-}
-.contained button{
-  cursor: pointer;
-  margin: 20px 0;
-    border: none;
-    font-size: 0.9rem;
-    line-height: 1rem;
-    font-weight: 700;
-    border-radius: 8px;
-    color: rgb(255, 255, 255);
+    justify-content: center;
+    color: #fff;
+  }
+  
+  .auth{
     width: 90%;
-    height: 48px;
-    padding: 8px 22px;
-    background: rgb(0, 171, 85);
-    box-shadow: rgba(0, 171, 85, 0.24) 0px 8px 16px 0px;
-}
-.contained button:hover{
+    max-width: 400px;
+    padding: 20px;
+  
+  }
+  
+  .auth form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 auto 10px auto;
+  }
+  
+  .auth__success{
+    padding: 10px 0;
+    background-color: hsl(147, 79%, 87%);
+    margin-bottom: 20px;
+  }
+  
+  .auth__error{
+    padding: 10px 0;
+    background-color: hsl(0, 79%, 87%);
+    margin-bottom: 20px;
+  }
+  
+  .auth form > input, button{
+    height: 40px;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  .auth input{
+    border-radius: 8px;
+    outline: none;
+  }
+  
+  .auth button:hover{
     background: green;
     box-shadow: none;
 }
-.contained p{
-    text-align: center;
+.auth p{
     font-weight: 700;
 }
-.contained p a{
+.auth p a{
     text-decoration: none;
     color: red;
-}
+} 
+  .errorMsg{
+    color:  #aa0b20;
+  }
+  .link{
+    text-decoration: none;
+    font-weight: bold;
+    color: red;
+    margin: 0.5rem;
+  } 

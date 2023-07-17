@@ -37,6 +37,7 @@ if(!response.ok){
     throw new Error('Order Failed...try again!')
 }
 const responseData = await response.json();
+
 console.log(responseData);
 setIsSubmitting(false);
 setDidSubmit(true);
@@ -53,8 +54,10 @@ setIsError(err.message || 'Something went wrong');
     }</ul>
     
    
+   
     const orderButtonHandle = () =>{
         setShowForm(true);
+     
        }
        const modalActions = (
         <div className={styles.actions}>

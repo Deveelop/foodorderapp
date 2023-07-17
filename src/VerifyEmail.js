@@ -19,7 +19,7 @@ function VerifyEmail() {
       .then(() => {
         if(currentUser?.emailVerified){
           clearInterval(interval)
-          navigate('/home')
+          navigate('/login')
         }
       })
       .catch((err) => {

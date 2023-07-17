@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import {useAuthValue} from './store/AuthContext'
 import { signOut } from 'firebase/auth' 
 import { auth } from './Firebase'
 import AdminSvg from './components/admin/AdminSvg'
 import './Profile.css'
 import UpdateMeals from './components/admin/UpdateMeals'
+import UpgradeUser from './store/upgrade-context'
+
 function Profile() {
   const {currentUser} = useAuthValue();
   const [makeUpdate, setMakeUpdate] = useState(false);
+  
   
   const updateHandle = () => {
     setMakeUpdate(true);
@@ -15,6 +18,7 @@ function Profile() {
   const closeForm = () => {
     setMakeUpdate(false);
   }
+const ctx = useContext(UpgradeUser);
 
 
   return (
@@ -30,15 +34,16 @@ function Profile() {
        <button className='update' type='button' onClick={updateHandle}>Update meals</button>
        <button className='logOut' onClick={() => signOut(auth)}>Sign Out</button>
       
+       
        </div>
        </div>
       
        <div className='tracking'>
         <h1> Your Rating</h1>
-        <div style={{'--values': 40}} className='div'></div>
+        <div style={{'--values': 50}} className='div'></div>
         <div className='ratingGroup'>
-        <div style={{'--value1': 8}} className='orders'></div>
-        <div style={{'--value2': 15}} className='stars'></div>
+        <div style={{'--value1': 20}} className='orders'></div>
+        <div style={{'--value2': 8}} className='stars'></div>
         </div>
        </div>
       </div>
