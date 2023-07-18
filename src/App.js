@@ -4,13 +4,12 @@ import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
 import CartProvider from "./store/CartProvider";
-import SignIn from "./components/admin/SignIn";
 import Login from "./components/admin/Login";
 import Register from "./components/admin/Register";
-import VerifyEmail from "./VerifyEmail";
-import UserProfile from "./UserProfile";
+import VerifyEmail from "./components/Users/VerifyEmail";
+import UserProfile from "./components/Users/UserProfile";
 import PrivateRoute from "./PrivateRoute";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { AuthProvider } from "./store/AuthContext";
 import { auth } from "./Firebase";
 import { onAuthStateChanged } from "firebase/auth";
@@ -21,7 +20,6 @@ function App() {
   const [cartShown, setCartShown] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [timeActive, setTimeActive] = useState(false);
-  let [isRating, setIsRating] = useState(0);
   const [sideNav, setSideNav] = useState(false);
 
   useEffect(()=>{

@@ -47,12 +47,9 @@ const makeUpdateRequest = async (updateReq) => {
         }
     })
     const resData = await response.json();
-    console.log(resData);
 }
 const updateSubmit = (e) => {
 e.preventDefault();
-
-
 
 const updateDetails = {
     id: enteredUserId,
@@ -61,7 +58,6 @@ const updateDetails = {
     price: enteredmealPrice,
 }
 makeUpdateRequest(updateDetails);
-console.log(updateDetails)
 userIdReset();
 mealNameReset();
 mealsDescriptionReset();

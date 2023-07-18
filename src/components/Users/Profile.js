@@ -1,11 +1,11 @@
-import { useState, useContext } from 'react'
-import {useAuthValue} from './store/AuthContext'
+import { useState} from 'react'
+import {useAuthValue} from '../../store/AuthContext'
 import { signOut } from 'firebase/auth' 
-import { auth } from './Firebase'
-import AdminSvg from './components/admin/AdminSvg'
+import { auth } from '../../Firebase'
+import AdminSvg from '../admin/AdminSvg'
 import './Profile.css'
-import UpdateMeals from './components/admin/UpdateMeals'
-import UpgradeUser from './store/upgrade-context'
+import UpdateMeals from '../admin/UpdateMeals'
+
 
 function Profile() {
   const {currentUser} = useAuthValue();
@@ -18,7 +18,7 @@ function Profile() {
   const closeForm = () => {
     setMakeUpdate(false);
   }
-const ctx = useContext(UpgradeUser);
+
 
 
   return (

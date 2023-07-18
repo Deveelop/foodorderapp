@@ -1,7 +1,7 @@
 
-import {useAuthValue} from './store/AuthContext'
+import {useAuthValue} from '../../store/AuthContext'
 import {useState, useEffect} from 'react'
-import {auth} from './Firebase'
+import {auth} from '../../Firebase'
 import {sendEmailVerification} from 'firebase/auth'
 import {useNavigate} from 'react-router-dom'
 import styles from './VerifyEmail.module.css'

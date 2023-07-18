@@ -38,7 +38,6 @@ if(!response.ok){
 }
 const responseData = await response.json();
 
-console.log(responseData);
 setIsSubmitting(false);
 setDidSubmit(true);
 ctx.clearCart()

@@ -1,6 +1,7 @@
 
 import styles from './Checkout.module.css'
 import useInput from '../hooks/use-input'
+import FlutterwaveApp from '../paymentgateway/Flutterwave';
 
 function Checkout(props) {
   
@@ -83,8 +84,9 @@ const {
         {cityHasError && <p>field required</p>}
         </div>
         <div className={styles.actions}>
-        <button type='button' onClick={props.onCancel}>Cancel</button>
-        <button className={styles.submit}>Confirm</button>
+        <button className={styles.cancelBtn} type='button' onClick={props.onCancel}>Cancel</button>
+        <button className={styles.submit}>Pay on delivery</button>
+        <FlutterwaveApp>Pay Online</FlutterwaveApp>
         </div>
     </form>
   )

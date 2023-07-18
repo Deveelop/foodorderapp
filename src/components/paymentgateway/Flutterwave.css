@@ -1,0 +1,9 @@
+.orderbtn {
+    background-color: #09cf34;
+    color: white;
+    border-radius: 25px;
+  }
+.orderbtn:hover,
+.orderbtn:active{
+background-color: #2dc40f;
+}

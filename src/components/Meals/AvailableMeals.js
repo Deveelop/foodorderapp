@@ -15,7 +15,6 @@ useEffect(()=>{
         
      const response = await fetch('https://react-http-85514-default-rtdb.firebaseio.com/meals.json');
      const responseData = await response.json();
-     console.log(responseData)
     if(!response.ok){
         throw new Error('Failed to fetch data')
     }

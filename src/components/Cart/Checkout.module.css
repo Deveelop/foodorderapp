@@ -38,8 +38,8 @@
     padding: 0.5rem 2rem; 
   }
   
-  .actions button:hover,
-  .actions button:active {
+  .actions .cancelBtn:hover,
+  .actions .cancelBtn:active {
     background-color: #ffe6dc;
   }
   
