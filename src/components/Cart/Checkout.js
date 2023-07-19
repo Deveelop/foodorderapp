@@ -7,6 +7,7 @@ function Checkout(props) {
   
 const {
     value:enteredName,
+    isValid: validName,
     hasError:nameHasError,
     inputChangeHandler:nameChange, 
     inputBlurHandler:nameBlurHandle,
@@ -14,6 +15,7 @@ const {
   } = useInput (value => value.trim() !== '');
   const {
     value:enteredStreet,
+    isValid: validStreet,
     hasError:streetHasError,
     inputChangeHandler:streetChange, 
     inputBlurHandler:streetBlurHandle,
@@ -21,6 +23,7 @@ const {
   } = useInput (value => value.trim() !== '');
   const {
     value:enteredPostal,
+    isValid: validPostal,
     hasError:postalHasError,
     inputChangeHandler:postalChange, 
     inputBlurHandler:postalBlurHandle,
@@ -29,13 +32,18 @@ const {
 
   const {
     value:enteredCity,
+    isValid: validCity,
     hasError:cityHasError,
     inputChangeHandler:cityChange, 
     inputBlurHandler:cityBlurHandle,
     reset: resetCity
   } = useInput (value => value.trim() !== '');
 
-  
+  let formValid = false;
+
+  if(validName && validStreet && validPostal && validCity ){
+    formValid = true
+  }
 
 
 
@@ -85,7 +93,7 @@ const {
         </div>
         <div className={styles.actions}>
         <button className={styles.cancelBtn} type='button' onClick={props.onCancel}>Cancel</button>
-        <button className={styles.submit}>Pay on delivery</button>
+        <button disabled={!formValid} className={styles.submit}>Pay on delivery</button>
         <FlutterwaveApp>Pay Online</FlutterwaveApp>
         </div>
     </form>

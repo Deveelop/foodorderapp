@@ -37,7 +37,18 @@
     border-radius: 25px;
     padding: 0.5rem 2rem; 
   }
-  
+  @media (max-width: 800px) {
+    .actions button {
+      font: inherit;
+      color: #5a1a01;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      border-radius: 25px;
+      padding: 0.5rem 1rem; 
+    }
+    
+  }
   .actions .cancelBtn:hover,
   .actions .cancelBtn:active {
     background-color: #ffe6dc;
@@ -64,4 +75,13 @@
   }
   .invalid p{
     color:  #aa0b20;
+  }
+  button:disabled,
+  button:focus:disabled,
+  button:hover:disabled,
+  button:active:disabled{
+    background: #ccc;
+    border-color: #ccc;
+    color: #666666;
+    cursor: not-allowed;
   }

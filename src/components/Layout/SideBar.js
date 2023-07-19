@@ -8,7 +8,6 @@ function Sidebar() {
       
       <ul className={styles.sidebar}>
         <Link to='/' onClick={ctx.navCloseFunc} className={styles.link}><li>Home</li></Link>
-        <li  onClick={ctx.navCloseFunc}>FAQ</li>
         <Link to='/register'  onClick={ctx.navCloseFunc} className={styles.link}><li>Signup</li></Link> 
         <Link to='/login'  onClick={ctx.navCloseFunc} className={styles.link}><li>Signin</li></Link>
       </ul>

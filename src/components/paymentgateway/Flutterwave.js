@@ -14,9 +14,9 @@ export default function FlutterwaveApp() {
     currency: 'NGN',
     payment_options: 'card,mobilemoney,ussd',
     customer: {
-      email: 'mamaputonlinefood@gmail.com',
-      phone_number: '08065032361',
-      name: 'Mamaput Online Food',
+      email: 'user@gmail.com',
+      phone_number: '070********',
+      name: 'your name',
     },
     customizations: {
       title: 'Mamaput Online Food',
