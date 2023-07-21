@@ -2,6 +2,7 @@ import React from 'react'
 import useInput from '../hooks/use-input';
 import styles from './UpdateMeals.module.css'
 import Modal from '../UI/Modal';
+import MealsApi from '../api/meals-api';
 function UpdateMeals(props) {
 const {
     value:enteredUserId,
@@ -38,16 +39,7 @@ const {
         formIsValid = true;
      }
 
-const makeUpdateRequest = async (updateReq) => {
-    const response = await fetch('https://react-http-85514-default-rtdb.firebaseio.com/meals.json', {
-        method: 'POST',
-        body: JSON.stringify(updateReq),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    const resData = await response.json();
-}
+const {updateFunc:makeUpdateRequest} = MealsApi();
 const updateSubmit = (e) => {
 e.preventDefault();
 

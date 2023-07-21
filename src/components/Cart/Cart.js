@@ -1,18 +1,18 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import styles from './Cart.module.css'
 import CartContext from '../../store/cart-context';
 import Modal from "../UI/Modal";
 import CartItems from './CartItem';
 import Checkout from './Checkout';
 import UpdateMeals from '../admin/UpdateMeals';
+import MealsApi from '../api/meals-api';
 
 export default function Cart(props) {
     const ctx = useContext(CartContext);
+    const {submitRequestFunc:submitHandler, submitingStateVar:isSubmitting, didSubmitStateVar:didSubmit, errorStateVar:isError} = MealsApi();
    const [hasItem] = useState(ctx.items.length > 0)
    const [showForm, setShowForm] = useState(false);
-   const [isSubmitting, setIsSubmitting] = useState(false);
-   const [didSubmit, setDidSubmit] = useState(false);
-   const [isError, setIsError] = useState(false);
+   
   
    const cartRemoveHandler = (id) => {
     ctx.removeItem(id)
@@ -20,39 +20,13 @@ export default function Cart(props) {
    const cartAddHandler = (item) => {
     ctx.addItem({...item, amount: 1})
    }
-const submitHandler = async (userDetails) =>{
-    setIsSubmitting(true)
-    try{
-const response = await fetch('https://react-http-85514-default-rtdb.firebaseio.com/mealsorder.json',{
-    method: 'POST',
-    body: JSON.stringify({
-        user: userDetails,
-        orderedItems: ctx.items
-    }),
-    headers:{
-        'Content-Type': 'application/json'
-    }
-})
-if(!response.ok){
-    throw new Error('Order Failed...try again!')
-}
-const responseData = await response.json();
 
-setIsSubmitting(false);
-setDidSubmit(true);
-ctx.clearCart()
-} catch(err){
-setIsError(err.message || 'Something went wrong');
-}
-} 
    
     const cartItems = <ul className={styles['cart-items']}> 
     {ctx.items.map((item) =>(
     <CartItems onAdd={cartAddHandler.bind(null, item)} onRemove={cartRemoveHandler.bind(null, item.id)} name={item.name} price={item.price} amount={item.amount} key={item.id}/>
     ))
     }</ul>
-    
-   
    
     const orderButtonHandle = () =>{
         setShowForm(true);

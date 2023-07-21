@@ -3,6 +3,7 @@ import styles from './Checkout.module.css'
 import useInput from '../hooks/use-input'
 import FlutterwaveApp from '../paymentgateway/Flutterwave';
 
+
 function Checkout(props) {
   
 const {

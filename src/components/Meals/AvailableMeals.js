@@ -2,37 +2,14 @@ import { useEffect, useState } from "react";
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 import styles from './AvailableMeals.module.css'
+import MealsApi from "../api/meals-api";
 
 export default function AvailableMeals() {
-    const [meals, setMeals] = useState([]);
+  
     const [httperror, setError] = useState(null);
-    const [isLoading, setIsLaoding] = useState(false);
+  const {fetchRequest:fetchMeals, convertedMeals:meals, loadingState:isLoading, loadingFunc:setIsLaoding} = MealsApi()
 
 useEffect(()=>{
-
-    const fetchMeals = async () =>{
-        setIsLaoding(true);
-        
-     const response = await fetch('https://react-http-85514-default-rtdb.firebaseio.com/meals.json');
-     const responseData = await response.json();
-    if(!response.ok){
-        throw new Error('Failed to fetch data')
-    }
-     const loadedMeals = [];
-     for (const key in responseData){
-        loadedMeals.push({
-            id:key,
-            name: responseData[key].name,
-            description: responseData[key].description,
-            price: responseData[key].price
-        })
-     }
-    
-    setMeals(loadedMeals)
-setIsLaoding(false)
-
-    }
-    
     fetchMeals().catch((err)=>{
 setIsLaoding(false);
 setError(err.message || 'Something went wrong')
