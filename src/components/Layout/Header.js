@@ -13,7 +13,7 @@ export default function Header (props){
         <>
     <header className={styles.header}>
     <span onClick={ctx.navFuction} className={styles.icon}><MenuIcon/></span>
-    <img src="/images/mamalogo.png" />
+    <img src="/images/mamalogo.png" alt="mamalogo"/>
     <span className={styles.element3}> <Link to='/' className={styles.link}> <h2>MamaPut <Home/></h2></Link> </span> 
      <span className={styles.element2}><AdminBtn/></span> 
      <span className={styles.element1}><HeaderCartButton isCartShown={props.onShowCart}/></span>

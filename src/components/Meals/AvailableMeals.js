@@ -14,7 +14,7 @@ useEffect(()=>{
 setIsLaoding(false);
 setError(err.message || 'Something went wrong')
     });
-}, []);
+}, [setIsLaoding, setError]);
 
 if(isLoading){
     return(
